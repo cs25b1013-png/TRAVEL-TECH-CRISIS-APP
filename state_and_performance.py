@@ -278,6 +278,13 @@ def render_sidebar_controls():
         toggle_sos_alert()
         st.rerun()
 
+    # Return the 3 values expected by app.py
+    return (
+        st.session_state.get("user_lat", 12.8350),
+        st.session_state.get("user_lon", 80.1300),
+        st.session_state.get("selected_language_name", "English")
+    )
+
 
 # ===================================================================
 # Local Execution Test
