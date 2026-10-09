@@ -31,30 +31,22 @@ initialize_session_state()
 with st.sidebar:
     st.title("🛡️ Tourist Crisis Portal")
 
-    # Language Selector
-    # Language Selector with safe dictionary handling
+    # Language Selector (Safely handling SUPPORTED_LANGUAGES dictionary)
     st.subheader("🌐 Select Language")
-    
-    # SUPPORTED_LANGUAGES is a dict: keys are language names
     lang_names = list(SUPPORTED_LANGUAGES.keys())
     
-    default_lang = st.session_state.get("selected_language_name", "English")
-    if default_lang not in lang_names:
-        default_lang = "English"
+    current_lang_name = st.session_state.get("selected_language_name", "English")
+    if current_lang_name not in lang_names:
+        current_lang_name = "English"
         st.session_state["selected_language_name"] = "English"
 
     selected_lang = st.selectbox(
         "Choose your preferred language:",
         options=lang_names,
-        index=lang_names.index(default_lang),
+        index=lang_names.index(current_lang_name),
     )
     
     if selected_lang != st.session_state.get("selected_language_name"):
-        update_app_language(selected_lang)
-        st.rerun()
-    if selected_lang != st.session_state.get("selected_language_name"):
-        update_app_language(selected_lang)
-        st.rerun()
         update_app_language(selected_lang)
         st.rerun()
 
@@ -155,7 +147,6 @@ else:
 m1, m2, m3, m4 = st.columns(4)
 m1.metric("Current Condition", str(translated_weather.get("weather_main", "-")))
 
-# Temperature Metric with strict Celsius unit formatting
 temp_val = translated_weather.get("temp")
 m2.metric(
     "Temperature",
@@ -180,7 +171,6 @@ col_map, col_info = st.columns([2, 1])
 with col_map:
     st.subheader("🗺️ Live Hazard Map & Shelter Locations")
 
-    # Combine User Location and Shelter Coordinates into a single DataFrame for st.map()
     map_points = [
         {
             "latitude": cur_lat,
@@ -198,7 +188,6 @@ with col_map:
 
     map_df = pd.DataFrame(map_points)
 
-    # Native Streamlit Map (No Folium dependency needed)
     st.map(map_df, latitude="latitude", longitude="longitude", size=20, zoom=12)
     st.caption("🔴/🔵 Current Location | 🟢 Nearby Open Safe Havens")
 
