@@ -2,6 +2,15 @@ import requests
 import streamlit as st
 
 # Comprehensive language code mapping for fallback translation
+SUPPORTED_LANGUAGES = [
+    "English",
+    "Tamil",
+    "Hindi",
+    "Spanish",
+    "French",
+    "Telugu",
+    "Kannada"
+]
 LANGUAGE_CODES = {
     "English": "en",
     "Tamil": "ta",
