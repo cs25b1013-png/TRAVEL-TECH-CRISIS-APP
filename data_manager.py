@@ -22,9 +22,14 @@ def fetch_live_weather_and_alerts(lat=DEFAULT_LAT, lon=DEFAULT_LON):
         response = requests.get(url, timeout=5)
         if response.status_code == 200:
             data = response.json()
+            raw_temp = data.get("main", {}).get("temp", 28.5)
+            
+            # Kelvin to Celsius conversion formula check
+            converted_temp = round(raw_temp - 273.15 if raw_temp > 100 else raw_temp, 1)
+
             return {
                 "status": "success",
-                "temp": data.get("main", {}).get("temp"),
+                "temp": converted_temp,
                 "humidity": data.get("main", {}).get("humidity"),
                 "weather_main": data.get("weather", [{}])[0].get("main", "Clear"),
                 "description": data.get("weather", [{}])[0].get("description", "No active alerts"),
