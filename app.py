@@ -140,12 +140,14 @@ else:
 # Live Metrics Bar
 m1, m2, m3, m4 = st.columns(4)
 m1.metric("Current Condition", str(translated_weather.get("weather_main", "-")))
+
+# Temperature Metric with strict Celsius unit formatting
+temp_val = translated_weather.get("temp")
 m2.metric(
     "Temperature",
-    f"{translated_weather.get('temp', '-')} °C"
-    if translated_weather.get("temp")
-    else "-",
+    f"{temp_val} °C" if temp_val is not None else "-",
 )
+
 m3.metric(
     "Wind Speed",
     f"{translated_weather.get('wind_speed', '-')} km/h"
@@ -224,4 +226,4 @@ if active_list:
             f"**Details:** {item.get('description_local')}"
         )
 else:
-    st.info("No localized active hazard warnings found for your exact location.")
+    st.info("No localized active hazard warnings found for your location.")
