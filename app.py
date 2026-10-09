@@ -1,5 +1,5 @@
 import streamlit as st
-from data_manager import get_weather_data, get_disaster_dashboard_data
+from data_manager import fetch_live_weather_and_alerts, get_disaster_dashboard_data
 from state_and_performance import initialize_session_state, render_sidebar_controls
 from translation_engine import translate_text_batch
 
