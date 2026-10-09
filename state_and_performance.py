@@ -223,20 +223,11 @@ def update_user_location(new_lat: float, new_lon: float):
 
 
 def update_app_language(lang_name: str):
-    """Updates target translation language code in session state safely."""
+    """Updates target translation language code in session state."""
     st.session_state["selected_language_name"] = lang_name
-    
-    # Safe dictionary map to prevent list attribute errors and ensure language updates work
-    lang_codes = {
-        "English": "en",
-        "Tamil": "ta",
-        "Hindi": "hi",
-        "Spanish": "es",
-        "French": "fr",
-        "Telugu": "te",
-        "Kannada": "kn"
-    }
-    st.session_state["target_lang_code"] = lang_codes.get(lang_name, "en")
+    st.session_state["target_lang_code"] = SUPPORTED_LANGUAGES.get(
+        lang_name, "en"
+    )
 
 
 def toggle_sos_alert():
