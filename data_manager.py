@@ -16,20 +16,16 @@ DEFAULT_LON = 80.1373
 # -------------------------------------------------------------------
 def fetch_live_weather_and_alerts(lat=DEFAULT_LAT, lon=DEFAULT_LON):
     """Fetches real-time weather parameters and weather alerts from OpenWeatherMap."""
-    url = f"http://api.openweathermap.org/data/2.5/weather?q=Chennai,in&APPID=8212588a2a05ab6adc036c151d4db1c6"
+    # Added &units=metric to force Celsius response from OpenWeatherMap
+    url = f"http://api.openweathermap.org/data/2.5/weather?q=Chennai,in&APPID=8212588a2a05ab6adc036c151d4db1c6&units=metric"
     
     try:
         response = requests.get(url, timeout=5)
         if response.status_code == 200:
             data = response.json()
-            raw_temp = data.get("main", {}).get("temp", 28.5)
-            
-            # Kelvin to Celsius conversion formula check
-            converted_temp = round(raw_temp - 273.15 if raw_temp > 100 else raw_temp, 1)
-
             return {
                 "status": "success",
-                "temp": converted_temp,
+                "temp": round(data.get("main", {}).get("temp", 28.5), 1),
                 "humidity": data.get("main", {}).get("humidity"),
                 "weather_main": data.get("weather", [{}])[0].get("main", "Clear"),
                 "description": data.get("weather", [{}])[0].get("description", "No active alerts"),
