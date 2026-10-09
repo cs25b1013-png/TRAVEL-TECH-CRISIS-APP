@@ -15,9 +15,8 @@ DEFAULT_LON = 80.1373
 # 1. Live Weather & Alert Fetching
 # -------------------------------------------------------------------
 def fetch_live_weather_and_alerts(lat=DEFAULT_LAT, lon=DEFAULT_LON):
-    """Fetches real-time weather parameters and weather alerts from OpenWeatherMap in Fahrenheit."""
-    # Added units=imperial to request temperature directly in Fahrenheit
-    url = f"http://api.openweathermap.org/data/2.5/weather?q=Chennai,in&units=imperial&APPID={OPENWEATHER_API_KEY}"
+    """Fetches real-time weather parameters and weather alerts from OpenWeatherMap."""
+    url = f"http://api.openweathermap.org/data/2.5/weather?q=Chennai,in&APPID=8212588a2a05ab6adc036c151d4db1c6"
     
     try:
         response = requests.get(url, timeout=5)
@@ -25,19 +24,19 @@ def fetch_live_weather_and_alerts(lat=DEFAULT_LAT, lon=DEFAULT_LON):
             data = response.json()
             return {
                 "status": "success",
-                "temp": data.get("main", {}).get("temp"),  # Temperature is now in Fahrenheit
+                "temp": data.get("main", {}).get("temp"),
                 "humidity": data.get("main", {}).get("humidity"),
                 "weather_main": data.get("weather", [{}])[0].get("main", "Clear"),
                 "description": data.get("weather", [{}])[0].get("description", "No active alerts"),
-                "wind_speed": data.get("wind", {}).get("speed")  # Wind speed returned in mph with imperial units
+                "wind_speed": data.get("wind", {}).get("speed")
             }
     except Exception as e:
         print(f"[Warning] Weather API Request Failed: {e}")
     
-    # Fallback response with temperature converted from 28.5°C to 83.3°F
+    # Fallback response if API key is missing or network fails
     return {
         "status": "fallback",
-        "temp": 83.3,
+        "temp": 28.5,
         "humidity": 88,
         "weather_main": "Rain",
         "description": "Heavy rainfall warning issued for localized low-lying areas.",
