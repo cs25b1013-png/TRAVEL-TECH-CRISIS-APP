@@ -35,8 +35,8 @@ with st.sidebar:
     st.subheader("🌐 Select Language")
     selected_lang = st.selectbox(
         "Choose your preferred language:",
-        options=list(SUPPORTED_LANGUAGES.keys()),
-        index=list(SUPPORTED_LANGUAGES.keys()).index(
+        options=SUPPORTED_LANGUAGES,
+        index=SUPPORTED_LANGUAGES.index(
             st.session_state["selected_language_name"]
         ),
     )
