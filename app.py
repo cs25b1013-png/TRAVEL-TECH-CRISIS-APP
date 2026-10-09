@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 
-from translation_engine import SUPPORTED_LANGUAGES
+from translation_engine import SUPPORTED_LANGUAGES, get_ui_text
 # Import performance and state functions
 from state_and_performance import (
     initialize_session_state,
@@ -24,18 +24,18 @@ st.set_page_config(
 )
 
 initialize_session_state()
+current_lang_name = st.session_state.get("selected_language_name", "English")
 
 # -------------------------------------------------------------------
 # 2. Sidebar Controls (Language & Location Simulator)
 # -------------------------------------------------------------------
 with st.sidebar:
-    st.title("🛡️ Tourist Crisis Portal")
+    st.title(get_ui_text("portal_title", current_lang_name))
 
-    # Language Selector (Safely handling SUPPORTED_LANGUAGES dictionary)
-    st.subheader("🌐 Select Language")
+    # Language Selector
+    st.subheader(get_ui_text("select_lang", current_lang_name))
     lang_names = list(SUPPORTED_LANGUAGES.keys())
     
-    current_lang_name = st.session_state.get("selected_language_name", "English")
     if current_lang_name not in lang_names:
         current_lang_name = "English"
         st.session_state["selected_language_name"] = "English"
@@ -44,6 +44,7 @@ with st.sidebar:
         "Choose your preferred language:",
         options=lang_names,
         index=lang_names.index(current_lang_name),
+        label_visibility="collapsed"
     )
     
     if selected_lang != st.session_state.get("selected_language_name"):
@@ -53,7 +54,7 @@ with st.sidebar:
     st.divider()
 
     # Location Simulator Controls
-    st.subheader("📍 Location Simulator")
+    st.subheader(get_ui_text("location_sim", current_lang_name))
     sim_lat = st.number_input(
         "Latitude:",
         value=float(st.session_state["user_lat"]),
@@ -75,12 +76,12 @@ with st.sidebar:
         st.rerun()
 
     # Quick Preset Coordinates for Demo
-    st.caption("Quick Test Locations:")
+    st.caption(get_ui_text("quick_loc", current_lang_name))
     col_red, col_green = st.columns(2)
-    if col_red.button("🔴 Inside Flood Zone"):
+    if col_red.button(get_ui_text("flood_zone_btn", current_lang_name)):
         update_user_location(12.8350, 80.1300)
         st.rerun()
-    if col_green.button("🟢 Safe Location"):
+    if col_green.button(get_ui_text("safe_loc_btn", current_lang_name)):
         update_user_location(12.8000, 80.1000)
         st.rerun()
 
@@ -88,9 +89,9 @@ with st.sidebar:
 
     # SOS Panic Trigger
     sos_label = (
-        "🛑 CANCEL SOS"
+        get_ui_text("cancel_sos", current_lang_name)
         if st.session_state["sos_active"]
-        else "🚨 TRIGGER EMERGENCY SOS"
+        else get_ui_text("trigger_sos", current_lang_name)
     )
     if st.button(
         sos_label,
@@ -122,14 +123,12 @@ translated_weather = load_cached_translated_weather(
 # -------------------------------------------------------------------
 # 4. Main UI Layout
 # -------------------------------------------------------------------
-st.title("🚨 Real-Time Tourist Safety Navigator")
+st.title(get_ui_text("nav_title", current_lang_name))
 
 # Active SOS Banner
 if st.session_state["sos_active"]:
     st.error(
-        "🚨 **EMERGENCY SOS ACTIVE:** Your coordinates have been flagged for"
-        f" priority assistance ({cur_lat:.4f}, {cur_lon:.4f}). Stay calm and"
-        " proceed to the nearest shelter shown below."
+        f"🚨 **EMERGENCY SOS ACTIVE:** Your coordinates have been flagged for priority assistance ({cur_lat:.4f}, {cur_lon:.4f}). Stay calm and proceed to the nearest shelter shown below."
     )
 
 # Risk Status Alert Banner
@@ -145,22 +144,22 @@ else:
 
 # Live Metrics Bar
 m1, m2, m3, m4 = st.columns(4)
-m1.metric("Current Condition", str(translated_weather.get("weather_main", "-")))
+m1.metric(get_ui_text("current_cond", current_lang_name), str(translated_weather.get("weather_main", "-")))
 
 temp_val = translated_weather.get("temp")
 m2.metric(
-    "Temperature",
+    get_ui_text("temperature", current_lang_name),
     f"{temp_val} °C" if temp_val is not None else "-",
 )
 
 m3.metric(
-    "Wind Speed",
+    get_ui_text("wind_speed", current_lang_name),
     f"{translated_weather.get('wind_speed', '-')} km/h"
     if translated_weather.get("wind_speed")
     else "-",
 )
 m4.metric(
-    "Active Hazard Zones", len(translated_hazards.get("active_hazards", []))
+    get_ui_text("active_hazards", current_lang_name), len(translated_hazards.get("active_hazards", []))
 )
 
 st.divider()
@@ -169,7 +168,7 @@ st.divider()
 col_map, col_info = st.columns([2, 1])
 
 with col_map:
-    st.subheader("🗺️ Live Hazard Map & Shelter Locations")
+    st.subheader(get_ui_text("live_map_title", current_lang_name))
 
     map_points = [
         {
@@ -192,7 +191,7 @@ with col_map:
     st.caption("🔴/🔵 Current Location | 🟢 Nearby Open Safe Havens")
 
 with col_info:
-    st.subheader("🏥 Nearest Safe Havens")
+    st.subheader(get_ui_text("nearest_havens", current_lang_name))
 
     if not shelters_df.empty:
         for idx, row in shelters_df.iterrows():
@@ -203,11 +202,10 @@ with col_info:
                 st.write(f"**Address:** {row['address']}")
                 st.write(f"**Emergency Contact:** {row['phone']}")
                 st.write(
-                    f"**Capacity:** {row['capacity_available']} /"
-                    f" {row['capacity_total']} beds available"
+                    f"**Capacity:** {row['capacity_available']} / {row['capacity_total']} beds available"
                 )
                 st.link_button(
-                    "🗺️ Navigate Here",
+                    get_ui_text("navigate_here", current_lang_name),
                     f"https://www.google.com/maps/dir/?api=1&destination={row['lat']},{row['lon']}",
                     use_container_width=True,
                 )
@@ -218,7 +216,7 @@ with col_info:
 # 5. Active Hazards List Footer
 # -------------------------------------------------------------------
 st.divider()
-st.subheader("⚠️ Active Area Hazard Warnings")
+st.subheader(get_ui_text("active_warnings", current_lang_name))
 active_list = translated_hazards.get("active_hazards", [])
 
 if active_list:
