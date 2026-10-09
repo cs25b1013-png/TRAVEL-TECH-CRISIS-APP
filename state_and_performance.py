@@ -236,57 +236,6 @@ def toggle_sos_alert():
 
 
 # ===================================================================
-# 4. Streamlit Sidebar Controls Renderer
-# ===================================================================
-def render_sidebar_controls():
-    """Renders Streamlit sidebar controls for language, location, and SOS status."""
-    st.sidebar.header("⚙️ Dashboard Controls")
-
-    # Language selection dropdown
-    selected_lang = st.sidebar.selectbox(
-        "Select Language / மொழி",
-        options=list(SUPPORTED_LANGUAGES.keys()),
-        index=list(SUPPORTED_LANGUAGES.keys()).index(
-            st.session_state.get("selected_language_name", "English")
-        )
-    )
-    if selected_lang != st.session_state.get("selected_language_name"):
-        update_app_language(selected_lang)
-        st.rerun()
-
-    st.sidebar.divider()
-
-    # GPS Location Inputs
-    st.sidebar.subheader("📍 GPS Location")
-    lat = st.sidebar.number_input(
-        "Latitude", value=float(st.session_state.get("user_lat", 12.8350)), format="%.4f"
-    )
-    lon = st.sidebar.number_input(
-        "Longitude", value=float(st.session_state.get("user_lon", 80.1300)), format="%.4f"
-    )
-
-    if lat != st.session_state.get("user_lat") or lon != st.session_state.get("user_lon"):
-        update_user_location(lat, lon)
-        st.rerun()
-
-    st.sidebar.divider()
-
-    # Emergency SOS Toggle Button
-    sos_active = st.session_state.get("sos_active", False)
-    sos_label = "🚨 Emergency SOS Active" if sos_active else "⚠️ Trigger SOS"
-    if st.sidebar.button(sos_label, type="primary" if not sos_active else "secondary", use_container_width=True):
-        toggle_sos_alert()
-        st.rerun()
-
-    # Return the 3 values expected by app.py
-    return (
-        st.session_state.get("user_lat", 12.8350),
-        st.session_state.get("user_lon", 80.1300),
-        st.session_state.get("selected_language_name", "English")
-    )
-
-
-# ===================================================================
 # Local Execution Test
 # ===================================================================
 if __name__ == "__main__":
