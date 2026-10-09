@@ -17,7 +17,7 @@ initialize_session_state()
 user_lat, user_lon, selected_lang = render_sidebar_controls()
 
 # 4. Fetch Weather and Crisis Data
-weather_info = get_weather_data(user_lat, user_lon)
+weather_info = fetch_live_weather_and_alerts(user_lat, user_lon)
 hazard_polygons, shelters = get_disaster_dashboard_data()
 
 # 5. Header Section
