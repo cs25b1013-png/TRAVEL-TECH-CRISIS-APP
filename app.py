@@ -32,20 +32,26 @@ with st.sidebar:
     st.title("🛡️ Tourist Crisis Portal")
 
     # Language Selector
-    # Language Selector with safe index fallback
+    # Language Selector with safe dictionary handling
     st.subheader("🌐 Select Language")
     
-    # Ensure a valid default index
+    # SUPPORTED_LANGUAGES is a dict: keys are language names
+    lang_names = list(SUPPORTED_LANGUAGES.keys())
+    
     default_lang = st.session_state.get("selected_language_name", "English")
-    if default_lang not in SUPPORTED_LANGUAGES:
+    if default_lang not in lang_names:
         default_lang = "English"
         st.session_state["selected_language_name"] = "English"
 
     selected_lang = st.selectbox(
         "Choose your preferred language:",
-        options=SUPPORTED_LANGUAGES,
-        index=SUPPORTED_LANGUAGES.index(default_lang),
+        options=lang_names,
+        index=lang_names.index(default_lang),
     )
+    
+    if selected_lang != st.session_state.get("selected_language_name"):
+        update_app_language(selected_lang)
+        st.rerun()
     if selected_lang != st.session_state.get("selected_language_name"):
         update_app_language(selected_lang)
         st.rerun()
