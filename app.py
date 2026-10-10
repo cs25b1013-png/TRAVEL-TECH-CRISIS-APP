@@ -22,7 +22,22 @@ st.set_page_config(
     page_icon="🚨",
     layout="wide",
 )
+def disable_right_click_menu():
+    """Injects JavaScript into the parent window to disable right-click context menus."""
+    js_code = """
+    <script>
+    // Disable right-click context menu globally across the app
+    const doc = window.parent.document;
+    doc.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+    });
+    </script>
+    """
+    components.html(js_code, height=0, width=0)
 
+# Call this right after page config in app.py
+disable_right_click_menu()
 initialize_session_state()
 current_lang_name = st.session_state.get("selected_language_name", "English")
 
