@@ -10,7 +10,14 @@ SUPPORTED_LANGUAGES = {
     "Spanish": "es",
     "French": "fr",
     "Telugu": "te",
-    "Kannada": "kn"
+    "Kannada": "kn",
+    "German": "de",
+    "Japanese": "ja",
+    "Mandarin": "zh",
+    "Italian": "it",
+    "Russian": "ru",
+    "Arabic": "ar"
+    
 }
 UI_STRINGS = {
     "nav_title": {
@@ -20,7 +27,13 @@ UI_STRINGS = {
         "es": "Navegador de Seguridad Turística en Tiempo Real",
         "fr": "Navigateur de Sécurité Touristique en Temps Réel",
         "te": "నిజ-సమయ పర్యాటక భద్రతా నావిగేటర్",
-        "kn": "ನೈಜ-ಸಮಯದ ಪ್ರವಾಸಿ ಸುರಕ್ಷತಾ ನ್ಯಾವಿಗೇಟರ್"
+        "kn": "ನೈಜ-ಸಮಯದ ಪ್ರವಾಸಿ ಸುರಕ್ಷತಾ ನ್ಯಾವಿಗೇಟರ್",
+        "de": "Echtzeit-Tourismussicherheits-Navigator",
+        "ja": "リアルタイム観光客安全ナビゲーター",
+        "zh": "实时游客安全导航仪",
+        "it": "Navigatore di Sicurezza Turistica in Tempo Reale",
+        "ru": "Навигатор туристической безопасности в реальном времени",
+        "ar": "متصفح أسلامي لسياحة الأمن الفوري"
     },
     "portal_title": {
         "en": "🛡️ Tourist Crisis Portal",
@@ -29,7 +42,13 @@ UI_STRINGS = {
         "es": "🛡️ Portal de Crisis Turística",
         "fr": "🛡️ Portail de Crise Touristique",
         "te": "🛡️ పర్యాటక సంక్షోభ పోర్టల్",
-        "kn": "🛡️ ಪ್ರವಾಸಿ ಬಿಕ್ಕಟ್ಟು ಪೋರ್ಟಲ್"
+        "kn": "🛡️ ಪ್ರವಾಸಿ ಬಿಕ್ಕಟ್ಟು ಪೋರ್ಟಲ್",
+        "de": "🛡️ Touristen-Krisenportal",
+        "ja": "🛡️ 観光客危機ポータル",
+        "zh": "🛡️ 游客危机门户",
+        "it": "🛡️ Portale Crisi Turistica",
+        "ru": "🛡️ Портал туристических кризисов",
+        "ar": "🛡️ بوابة الأزمات السياحية"
     },
     "select_lang": {
         "en": "🌐 Select Language",
@@ -38,7 +57,13 @@ UI_STRINGS = {
         "es": "🌐 Seleccionar Idioma",
         "fr": "🌐 Choisir la Langue",
         "te": "🌐 భాషను ఎంచుకోండి",
-        "kn": "🌐 ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ"
+        "kn": "🌐 ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+        "de": "🌐 Sprache auswählen",
+        "ja": "🌐 言語を選択",
+        "zh": "🌐 选择语言",
+        "it": "🌐 Seleziona Lingua",
+        "ru": "🌐 Выберите язык",
+        "ar": "🌐 اختر اللغة"
     },
     "location_sim": {
         "en": "📍 Location Simulator",
@@ -47,7 +72,13 @@ UI_STRINGS = {
         "es": "📍 Simulador de Ubicación",
         "fr": "📍 Simulateur d'Emplacement",
         "te": "📍 స్థాన సిమ్యులేటర్",
-        "kn": "📍 ಸ್ಥಳ ಸಿಮ್ಯುಲೇಟರ್"
+        "kn": "📍 ಸ್ಥಳ ಸಿಮ್ಯುಲೇಟರ್",
+        "de": "📍 Standort-Simulator",
+        "ja": "📍 ロケーションシミュレーター",
+        "zh": "📍 位置模拟器",
+        "it": "📍 Simulatore di Posizione",
+        "ru": "📍 Симулятор местоположения",
+        "ar": "📍 محاكي الموقع"
     },
     "quick_loc": {
         "en": "Quick Test Locations:",
@@ -56,7 +87,13 @@ UI_STRINGS = {
         "es": "Ubicaciones de Prueba Rápida:",
         "fr": "Emplacements de Test Rapide :",
         "te": "త్వరిత పరీక్ష స్థానాలు:",
-        "kn": "ತ್ವರಿತ ಪರೀಕ್ಷಾ ಸ್ಥಳಗಳು:"
+        "kn": "ತ್ವರಿತ ಪರೀಕ್ಷಾ ಸ್ಥಳಗಳು:",
+        "de": "Schnelltest-Standorte:",
+        "ja": "クイックテストロケーション:",
+        "zh": "快速测试地点：",
+        "it": "Posizioni di Test Rapido:",
+        "ru": "Быстрые тестовые локации:",
+        "ar": "مواقع الاختبار السريع:"
     },
     "flood_zone_btn": {
         "en": "🔴 Inside Flood Zone",
@@ -65,7 +102,13 @@ UI_STRINGS = {
         "es": "🔴 Dentro de Zona de Inundación",
         "fr": "🔴 Dans la Zone Inondée",
         "te": "🔴 వరద ప్రాంతం లోపల",
-        "kn": "🔴 ಪ್ರವಾಹ ಪ್ರದೇಶದ ಒಳಗೆ"
+        "kn": "🔴 ಪ್ರವಾಹ ಪ್ರದೇಶದ ಒಳಗೆ",
+        "de": "🔴 Im Überschwemmungsgebiet",
+        "ja": "🔴 洪水地域内",
+        "zh": "🔴 洪灾区内",
+        "it": "🔴 All'interno della Zona alluvionata",
+        "ru": "🔴 В зоне затопления",
+        "ar": "🔴 داخل منطقة الفيضان"
     },
     "safe_loc_btn": {
         "en": "🟢 Safe Location",
@@ -74,7 +117,13 @@ UI_STRINGS = {
         "es": "🟢 Ubicación Segura",
         "fr": "🟢 Emplacement Sûr",
         "te": "🟢 సురక్షిత ప్రాంతం",
-        "kn": "🟢 ಸುರಕ್ಷಿತ ಸ್ಥಳ"
+        "kn": "🟢 ಸುರಕ್ಷಿತ ಸ್ಥಳ",
+        "de": "🟢 Sicherer Ort",
+        "ja": "🟢 安全な場所",
+        "zh": "🟢 安全地点",
+        "it": "🟢 Posizione Sicura",
+        "ru": "🟢 Безопасное место",
+        "ar": "🟢 مكان آمن"
     },
     "cancel_sos": {
         "en": "🛑 CANCEL SOS",
@@ -83,7 +132,13 @@ UI_STRINGS = {
         "es": "🛑 CANCELAR SOS",
         "fr": "🛑 ANNULER SOS",
         "te": "🛑 SOS రద్దు చేయండి",
-        "kn": "🛑 SOS ರದ್ದುಗೊಳಿಸಿ"
+        "kn": "🛑 SOS ರದ್ದುಗೊಳಿಸಿ",
+        "de": "🛑 SOS ABBRECHEN",
+        "ja": "🛑 SOSをキャンセル",
+        "zh": "🛑 取消求救信号",
+        "it": "🛑 ANNULLA SOS",
+        "ru": "🛑 ОТМЕНИТЬ SOS",
+        "ar": "🛑 إلغاء النداء العاجل"
     },
     "trigger_sos": {
         "en": "🚨 TRIGGER EMERGENCY SOS",
@@ -92,7 +147,13 @@ UI_STRINGS = {
         "es": "🚨 ACTIVAR SOS DE EMERGENCIA",
         "fr": "🚨 DÉCLENCHER SOS D'URGENCE",
         "te": "🚨 అత్యవసర SOSని ట్రిగర్ చేయండి",
-        "kn": "🚨 ತುರ್ತು SOS ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"
+        "kn": "🚨 ತುರ್ತು SOS ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ",
+        "de": "🚨 NOTFALL-SOS AUSLÖSEN",
+        "ja": "🚨 緊急SOSを発信",
+        "zh": "🚨 触发紧急求救",
+        "it": "🚨 ATTIVA SOS DI EMERGENZA",
+        "ru": "🚨 ВКЛЮЧИТЬ ЭКСТРЕННЫЙ SOS",
+        "ar": "🚨 تفعيل طوارئ الاستغاثة"
     },
     "current_cond": {
         "en": "Current Condition",
@@ -101,16 +162,29 @@ UI_STRINGS = {
         "es": "Condición Actual",
         "fr": "Condition Actuelle",
         "te": "ప్రస్తుత పరిస్థితి",
-        "kn": "ಪ್ರಸ್ತುತ ಸ್ಥಿತಿ"
+        "kn": "ಪ್ರಸ್ತುತ ಸ್ಥಿತಿ",
+        "de": "Aktuelle Bedingung",
+        "ja": "現在の状態",
+        "zh": "当前状况",
+        "it": "Condizione Attuale",
+        "ru": "Текущее состояние",
+        "ar": "الحالة الحالية"
     },
-    "temperature": {
+    
+   "temperature": {
         "en": "Temperature",
         "ta": "வெப்பநிலை",
         "hi": "तापमान",
         "es": "Temperatura",
         "fr": "Température",
         "te": "ఉష్ణోగ్రత",
-        "kn": "ತಾಪಮಾನ"
+        "kn": "ತಾಪಮಾನ",
+        "de": "Temperatur",
+        "ja": "気温",
+        "zh": "温度",
+        "it": "Temperatura",
+        "ru": "Температура",
+        "ar": "درجة الحرارة"
     },
     "wind_speed": {
         "en": "Wind Speed",
@@ -119,7 +193,13 @@ UI_STRINGS = {
         "es": "Velocidad del Viento",
         "fr": "Vitesse du Vent",
         "te": "గాలి వేగం",
-        "kn": "ಗಾಳಿಯ ವೇಗ"
+        "kn": "ಗಾಳಿಯ ವೇಗ",
+        "de": "Windgeschwindigkeiten",
+        "ja": "風速",
+        "zh": "风速",
+        "it": "Velocità del Vento",
+        "ru": "Скорость ветра",
+        "ar": "سرعة الرياح"
     },
     "active_hazards": {
         "en": "Active Hazard Zones",
@@ -128,7 +208,13 @@ UI_STRINGS = {
         "es": "Zonas de Peligro Activas",
         "fr": "Zones de Danger Actives",
         "te": "సక్రియ ప్రమాద ప్రాంతాలు",
-        "kn": "ಸಕ್ರಿಯ ಅಪಾಯ ವಲಯಗಳು"
+        "kn": "ಸಕ್ರಿಯ ಅಪಾಯ ವಲಯಗಳು",
+        "de": "Aktive Gefahrenzonen",
+        "ja": "アクティブな危険区域",
+        "zh": "活动危险区",
+        "it": "Zone di Pericolo Attive",
+        "ru": "Активные опасные зоны",
+        "ar": "مناطق الخطر النشطة"
     },
     "live_map_title": {
         "en": "🗺️ Live Hazard Map & Shelter Locations",
@@ -137,7 +223,13 @@ UI_STRINGS = {
         "es": "🗺️ Mapa de Peligros y Refugios en Vivo",
         "fr": "🗺️ Carte des Dangers et Refuges en Direct",
         "te": "🗺️ లై లైవ్ హజార్డ్ మ్యాప్ & ఆశ్రయ స్థానాలు",
-        "kn": "🗺️ ಲೈವ್ ಅಪಾಯ ನಕ್ಷೆ ಮತ್ತು ಆಶ್ರಯ ಸ್ಥಳಗಳು"
+        "kn": "🗺️ ಲೈವ್ ಅಪಾಯ ನಕ್ಷೆ ಮತ್ತು ಆಶ್ರಯ ಸ್ಥಳಗಳು",
+        "de": "🗺️ Live-Gefahrenkarte & Schutzräume",
+        "ja": "🗺️ ライブハザードマップと避難所",
+        "zh": "🗺️ 实时灾害地图与避难所位置",
+        "it": "🗺️ Mappa dei Pericoli in Tempo Reale e Rifugi",
+        "ru": "🗺️ Карта опасностей в реальном времени и убежища",
+        "ar": "🗺️ خريطة المخاطر الحية ومواقع الملاجئ"
     },
     "nearest_havens": {
         "en": "🏥 Nearest Safe Havens",
@@ -146,7 +238,13 @@ UI_STRINGS = {
         "es": "🏥 Refugios Seguros Más Cercanos",
         "fr": "🏥 Refuges Sûrs les Plus Proches",
         "te": "🏥 సమీప సురక్షిత ఆశ్రయాలు",
-        "kn": "🏥 ಹತ್ತಿರದ ಸುರಕ್ಷಿತ ಆಶ್ರಯಗಳು"
+        "kn": "🏥 ಹತ್ತಿರದ ಸುರಕ್ಷಿತ ಆಶ್ರಯಗಳು",
+        "de": "🏥 Nächstgelegene sichere Zufluchtsorte",
+        "ja": "🏥 最寄りの安全な避難所",
+        "zh": "🏥 最近的安全避难所",
+        "it": "🏥 Rifugi Sicuri più Vicini",
+        "ru": "🏥 Ближайшие безопасные убежища",
+        "ar": "🏥 أقرب الملاجئ الآمنة"
     },
     "active_warnings": {
         "en": "⚠️ Active Area Hazard Warnings",
@@ -155,7 +253,13 @@ UI_STRINGS = {
         "es": "⚠️ Advertencias de Peligro en Área Activa",
         "fr": "⚠️ Avertissements de Danger en Zone Active",
         "te": "⚠️ సక్రియ ప్రాంత ప్రమాద హెచ్చరికలు",
-        "kn": "⚠️ ಸಕ್ರಿಯ ಪ್ರದೇಶದ ಅಪಾಯದ ಎಚ್ಚರಿಕೆಗಳು"
+        "kn": "⚠️ ಸಕ್ರಿಯ ಪ್ರದೇಶದ ಅಪಾಯದ ಎಚ್ಚರಿಕೆಗಳು",
+        "de": "⚠️ Aktive Gefahrenwarnungen für das Gebiet",
+        "ja": "⚠️ 地域のアクティブな危険警告",
+        "zh": "⚠️ 活动区域灾害警告",
+        "it": "⚠️ Avvisi di Pericolo dell'Area Attiva",
+        "ru": "⚠️ Активные предупреждения об опасности в районе",
+        "ar": "⚠️ تحذيرات المخاطر النشطة في المنطقة"
     },
     "navigate_here": {
         "en": "🗺️ Navigate Here",
@@ -164,18 +268,34 @@ UI_STRINGS = {
         "es": "🗺️ Navegar Aquí",
         "fr": "🗺️ Naviguer Ici",
         "te": "🗺️ ఇక్కడకు నావిగేట్ చేయండి",
-        "kn": "🗺️ ಇಲ್ಲಿಗೆ ನ್ಯಾವಿಗೇಟ್ ಮಾಡಿ"
+        "kn": "🗺️ ಇಲ್ಲಿಗೆ ನ್ಯಾವಿಗೇಟ್ ಮಾಡಿ",
+        "de": "🗺️ Hierher navigieren",
+        "ja": "🗺️ ここへ移動",
+        "zh": "🗺️ 导航到此处",
+        "it": "🗺️ Naviga Qui",
+        "ru": "🗺️ Проложить маршрут сюда",
+        "ar": "🗺️ التنقل إلى هنا"
     }
 }
-
 def get_ui_text(key: str, lang_name: str) -> str:
     """Retrieves localized UI text based on language name."""
-    lang_code_map = {"English": "en", "Tamil": "ta", "Hindi": "hi", "Spanish": "es", "French": "fr", "Telugu": "te", "Kannada": "kn"}
+    lang_code_map = {
+        "English": "en",
+        "Tamil": "ta",
+        "Hindi": "hi",
+        "Spanish": "es",
+        "French": "fr",
+        "Telugu": "te",
+        "Kannada": "kn",
+        "German": "de",
+        "Japanese": "ja",
+        "Mandarin": "zh",
+        "Italian": "it",
+        "Russian": "ru",
+        "Arabic": "ar"
+    }
     code = lang_code_map.get(lang_name, "en")
-    
-    if key in UI_STRINGS:
-        return UI_STRINGS[key].get(code, UI_STRINGS[key].get("en", key))
-    return key
+    return UI_STRINGS.get(key, {}).get(code, UI_STRINGS.get(key, {}).get("en", ""))
 # ===================================================================
 
 def translate_text_batch(texts: list, target_language_code: str) -> list:
