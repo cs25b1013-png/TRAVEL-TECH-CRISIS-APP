@@ -18,8 +18,8 @@ During extreme weather emergencies (such as flash floods, cyclones, or severe co
 
 ### Key Capabilities:
 1. **Live Weather & Celsius Conversion**: Fetches real-time temperature, humidity, wind speeds, and meteorological descriptions via OpenWeatherMap, forced cleanly to Celsius (`&units=metric`).
-2. **Dual-Layer Localization Architecture (7 Languages)**: 
-   * **Static UI Localization**: Instant translation across buttons, sidebar controls, headers, and metrics for **English, Tamil, Hindi, Spanish, French, Telugu, and Kannada**.
+2. **Dual-Layer Localization Architecture (10 Languages)**: 
+   * **Static UI Localization**: Instant translation across buttons, sidebar controls, headers, and metrics for **English, Tamil, Hindi, Spanish, French, Telugu, and Kannada,Russian,Italian,Mandarian,Chinese**
    * **Dynamic Payload Translation**: Real-time hazard descriptions and emergency advisories translated on-the-fly using the `MyMemory` translation pipeline.
 3. **Spatial Hazard Detection Engine**: Pure Python ray-casting/polygon geometry engine that instantly evaluates whether a user's latitude and longitude fall within active Red/Yellow hazard zones.
 4. **Emergency Safe Haven Registry**: Integrated directory of nearby hospitals, relief shelters, and police precincts complete with live bed availability tracking, distance calculation, and direct Google Maps navigation links.
