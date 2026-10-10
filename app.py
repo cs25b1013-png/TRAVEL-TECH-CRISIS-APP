@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-
+import streamlit.components.v1 as components
 from translation_engine import SUPPORTED_LANGUAGES, get_ui_text
 # Import performance and state functions
 from state_and_performance import (
